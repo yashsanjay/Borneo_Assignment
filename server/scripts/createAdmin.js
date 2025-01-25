@@ -6,10 +6,7 @@ const dotenv = require('dotenv');
 dotenv.config(); // Ensure environment variables are loaded
 
 async function createAdmin() {
-    await mongoose.connect(process.env.MONGO_URI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    });
+    await mongoose.connect(process.env.MONGO_URI);
 
     const email = "admin@example.com";
     const password = await bcrypt.hash("admin123", 10);
