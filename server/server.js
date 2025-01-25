@@ -12,9 +12,17 @@ const userRoutes = require('./routes/userRoutes');
 const app = express();
 
 // Add CORS middleware
-app.use(cors({
-  origin: 'http://localhost:5173', // Allow requests from this origin
-}));
+// app.use(cors({
+//   origin: 'http://localhost:5173', // Allow requests from this origin
+// }));
+
+app.use(
+  cors({
+    origin: 'https://your-vercel-domain.vercel.app', // Replace with your actual frontend domain
+    methods: 'GET,POST,PUT,DELETE', // Specify the HTTP methods you allow
+    credentials: true, // If you use cookies/auth tokens
+  })
+);
 
 app.use(express.json());
 app.use(rateLimiter);
