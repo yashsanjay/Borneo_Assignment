@@ -29,7 +29,7 @@ const Login = () => {
       if (userData.role === 'Admin') {
         navigate('/admin'); // Admin Dashboard
       } else {
-        navigate('/'); // Default Home
+        navigate('/loggedIn'); // Default Home
       }
     } catch (err) {
       setError('Invalid credentials');
@@ -38,7 +38,8 @@ const Login = () => {
 
   return (
     <div>
-      <h2>Login</h2>
+      <h2 style={{ textAlign: 'center' }}>Login</h2>
+
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <input

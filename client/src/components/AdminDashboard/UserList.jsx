@@ -62,7 +62,7 @@ const UserList = ({ users }) => {
       </table>
 
       {editUser && (
-        <form onSubmit={handleUpdate}>
+        <form onSubmit={handleUpdate} style={{display: 'inline'}}>
           <h3>Edit User</h3>
           <label>Email:</label>
           <input

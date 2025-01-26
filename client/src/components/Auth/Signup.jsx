@@ -20,7 +20,7 @@ const Signup = () => {
 
   return (
     <div>
-      <h2>Signup</h2>
+      <h2 style={{ textAlign: 'center' }}>Signup</h2>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         <input

@@ -12,6 +12,7 @@ const RoleEditor = () => {
     try {
       await api.put(`/admin/users/${userId}/role`, { role, status });
       setMessage('Role updated successfully!');
+      setTimeout(() => window.location.reload(), 1000); // Reload the page after a short delay
     } catch (err) {
       setMessage('Error updating role. Please try again.');
     }
@@ -19,7 +20,7 @@ const RoleEditor = () => {
 
   return (
     <div>
-      <h2>Assign or Edit Role</h2>
+      <h2>Assign or Edit Role with User ID</h2>
       <form onSubmit={handleRoleChange}>
         <div>
           <label>User ID:</label>

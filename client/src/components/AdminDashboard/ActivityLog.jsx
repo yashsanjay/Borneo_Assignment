@@ -3,7 +3,7 @@ import React from 'react';
 const ActivityLog = ({ logs }) => {
   return (
     <div>
-      <h2>Activity Logs</h2>
+      <h2>Activity Logs by Admin</h2>
       <table>
         <thead>
           <tr>

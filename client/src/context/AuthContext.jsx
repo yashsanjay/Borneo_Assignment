@@ -10,6 +10,8 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    console.log(token);
+    
     if (token) {
       const userData = JSON.parse(atob(token.split('.')[1]));
       setUser(userData);
