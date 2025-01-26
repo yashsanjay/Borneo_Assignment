@@ -17,12 +17,11 @@ app.use(express.json());
 app.use(rateLimiter);
 app.use(sanitizeInput);
 
-// Routes
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
 
-// Error handling middleware
+
 app.use((err, req, res, next) => {
   res.status(err.status || 500).json({ error: err.message });
 });

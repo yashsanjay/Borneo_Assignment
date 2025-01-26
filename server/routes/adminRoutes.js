@@ -12,7 +12,7 @@ const { authorizeRole } = require('../middlewares/roleMiddleware');
 
 const router = express.Router();
 
-router.use(authenticate, authorizeRole(['Admin'])); // Protect all routes below this
+router.use(authenticate, authorizeRole(['Admin']));
 
 router.get('/users', getAllUsers);
 router.put('/users/:id/role', assignRole);

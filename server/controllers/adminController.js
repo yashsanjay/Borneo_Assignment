@@ -19,9 +19,9 @@ module.exports.assignRole = async (req, res) => {
 
         if (!user) return res.status(404).json({ error: 'User not found' });
 
-        // Log the activity
+        
         await ActivityLog.create({
-            userId: req.user.id, // The admin performing the action
+            userId: req.user.id,
             action: `Assigned role ${role} to user ${user.email}`,
             resourceType: 'User',
             resourceId: user._id,
@@ -36,7 +36,7 @@ module.exports.assignRole = async (req, res) => {
 
 module.exports.getLoginHistory = async (req, res) => {
     try {
-        const logs = await Log.find({}).populate('userId', 'email'); // Populate user email
+        const logs = await Log.find({}).populate('userId', 'email');
         console.log(logs);
         
         res.status(200).json(logs);
@@ -49,8 +49,8 @@ module.exports.getLoginHistory = async (req, res) => {
 module.exports.getActivityLogs = async (req, res) => {
     try {
         const logs = await ActivityLog.find({})
-            .populate('userId', 'email') // Populate user email
-            .sort({ timestamp: -1 }); // Sort by latest first
+            .populate('userId', 'email')
+            .sort({ timestamp: -1 });
 
         res.status(200).json(logs);
     } catch (err) {
@@ -60,7 +60,7 @@ module.exports.getActivityLogs = async (req, res) => {
 
 module.exports.updateUser = async (req, res) => {
     try {
-      const { email, status, role } = req.body; // Allow updating email, status, and role
+      const { email, status, role } = req.body;e
       const user = await User.findByIdAndUpdate(
         req.params.id,
         { email, status, role },

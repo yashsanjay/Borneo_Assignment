@@ -3,8 +3,8 @@ import api from '../../utils/api';
 
 const RoleEditor = () => {
   const [userId, setUserId] = useState('');
-  const [role, setRole] = useState('User'); // Default role
-  const [status, setStatus] = useState('active'); // Default status
+  const [role, setRole] = useState('User');
+  const [status, setStatus] = useState('active');
   const [message, setMessage] = useState('');
 
   const handleRoleChange = async (e) => {
@@ -12,7 +12,7 @@ const RoleEditor = () => {
     try {
       await api.put(`/admin/users/${userId}/role`, { role, status });
       setMessage('Role updated successfully!');
-      setTimeout(() => window.location.reload(), 1000); // Reload the page after a short delay
+      setTimeout(() => window.location.reload(), 1000);
     } catch (err) {
       setMessage('Error updating role. Please try again.');
     }

@@ -1,9 +1,9 @@
 const bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
-const User = require('../models/user'); // Adjust path as needed
+const User = require('../models/user');
 const dotenv = require('dotenv');
 
-dotenv.config(); // Ensure environment variables are loaded
+dotenv.config();
 
 async function createAdmin() {
     await mongoose.connect(process.env.MONGO_URI);

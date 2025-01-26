@@ -1,4 +1,3 @@
-// context/AuthContext.jsx
 import React, { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,7 +5,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();  // Using the useNavigate hook to navigate programmatically
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -16,10 +15,10 @@ export const AuthProvider = ({ children }) => {
       const userData = JSON.parse(atob(token.split('.')[1]));
       setUser(userData);
       if (userData.role === 'Admin') {
-        navigate('/admin');  // Redirect to /admin if the user is an admin
+        navigate('/admin');
       }
     }
-  }, [navigate]); // Make sure to use navigate in useEffect as a dependency
+  }, [navigate]);
 
   const login = (token) => {
     localStorage.setItem('token', token);

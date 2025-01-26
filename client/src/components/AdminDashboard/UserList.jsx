@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import api from '../../utils/api';
 
 const UserList = ({ users }) => {
-  const [editUser, setEditUser] = useState(null); // State to hold the user being edited
+  const [editUser, setEditUser] = useState(null);
   const [message, setMessage] = useState('');
 
   const handleDelete = async (userId) => {
@@ -10,7 +10,7 @@ const UserList = ({ users }) => {
       try {
         await api.delete(`/admin/users/${userId}`);
         setMessage('User deleted successfully!');
-        window.location.reload(); // Reload to refresh the user list
+        window.location.reload();
       } catch (err) {
         setMessage('Error deleting user');
       }
@@ -22,8 +22,8 @@ const UserList = ({ users }) => {
     try {
       await api.put(`/admin/users/${editUser._id}`, editUser);
       setMessage('User updated successfully!');
-      setEditUser(null); // Clear the edit form
-      window.location.reload(); // Reload to refresh the user list
+      setEditUser(null);
+      window.location.reload();
     } catch (err) {
       setMessage('Error updating user');
     }

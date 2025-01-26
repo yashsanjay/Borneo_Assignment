@@ -13,23 +13,22 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Login and get the token
+      
       console.log("helloo");
       
       const response = await api.post('/auth/login', { email, password });
       const token = response.data.token;
 
-      // Store the token and decode user information
       login(token);
 
-      // Decode the token to get the user's role
+      
       const userData = JSON.parse(atob(token.split('.')[1]));
 
-      // Redirect based on role
+    
       if (userData.role === 'Admin') {
-        navigate('/admin'); // Admin Dashboard
+        navigate('/admin');
       } else {
-        navigate('/loggedIn'); // Default Home
+        navigate('/loggedIn'); 
       }
     } catch (err) {
       setError('Invalid credentials');
