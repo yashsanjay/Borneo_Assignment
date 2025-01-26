@@ -20,7 +20,7 @@ const RoleEditor = () => {
 
   return (
     <div>
-      <h2>Assign or Edit Role with User ID</h2>
+      <h2>Edit Role And Status</h2>
       <form onSubmit={handleRoleChange}>
         <div>
           <label>User ID:</label>

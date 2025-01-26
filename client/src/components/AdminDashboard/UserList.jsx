@@ -51,7 +51,7 @@ const UserList = ({ users }) => {
               <td>{user.role}</td>
               <td>{user.status}</td>
               <td>
-                <button onClick={() => setEditUser(user)}>Edit</button>
+                {/* <button onClick={() => setEditUser(user)}>Edit</button> */}
                 <button onClick={() => handleDelete(user._id)} style={{ marginLeft: '8px' }}>
                   Delete
                 </button>
